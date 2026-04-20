@@ -111,7 +111,10 @@ export async function POST(req: NextRequest) {
       });
       mailSent = true;
     } catch (e) {
-      console.error("Postmark send failed", e);
+      const err = e as { code?: number; message?: string; statusCode?: number };
+      console.error(
+        `Postmark send failed | code=${err.code ?? "?"} status=${err.statusCode ?? "?"} msg=${err.message ?? String(e)}`,
+      );
     }
   }
 
