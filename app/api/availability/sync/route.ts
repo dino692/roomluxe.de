@@ -22,10 +22,13 @@ export async function GET(req: NextRequest) {
 
   const db = getDb();
   if (!db) {
-    return NextResponse.json(
-      { error: "DATABASE_URL not configured" },
-      { status: 500 },
-    );
+    // Keine DB konfiguriert → Sync ist ein No-op. Als 200 antworten,
+    // damit der Vercel-Cron nicht jede Minute einen 500er meldet.
+    return NextResponse.json({
+      ok: true,
+      skipped: true,
+      reason: "DATABASE_URL not configured",
+    });
   }
 
   const summary: Record<string, { feeds: number; blocked: number; error?: string }> = {};
