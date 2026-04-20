@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
+import { ServerClient as PostmarkClient } from "postmark";
 import { getDb, schema } from "@/lib/db/client";
 import { site } from "@/lib/site";
 import { wohnungBySlug } from "@/lib/data/wohnungen";
@@ -71,39 +72,62 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // 2) Mail via Resend
+  // 2) Mail — Postmark primär, Resend als Fallback
+  const wohnungLine = wohnung
+    ? `Wohnung: ${wohnung.shortTitle} (${wohnung.stadtteilName})\nLink: ${site.url}/wohnung/${wohnung.slug}\n\n`
+    : "";
+  const subject = `Neue Anfrage von ${data.name}${wohnung ? ` – ${wohnung.shortTitle}` : ""}`;
+  const textBody = [
+    `${wohnungLine}Name: ${data.name}`,
+    `E-Mail: ${data.email}`,
+    data.phone ? `Telefon: ${data.phone}` : null,
+    data.subject ? `Betreff: ${data.subject}` : null,
+    data.moveInDate ? `Wunschtermin: ${data.moveInDate}` : null,
+    "",
+    "Nachricht:",
+    data.message ?? "(keine Nachricht)",
+    "",
+    "---",
+    `IP: ${ip ?? "?"}`,
+    `Quelle: ${sourceUrl ?? "?"}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  const postmarkToken = process.env.POSTMARK_SERVER_TOKEN;
   const resendKey = process.env.RESEND_API_KEY;
-  if (resendKey) {
+  let mailSent = false;
+
+  if (postmarkToken) {
+    try {
+      const client = new PostmarkClient(postmarkToken);
+      await client.sendEmail({
+        From: process.env.POSTMARK_FROM ?? "noreply@roomluxe.de",
+        To: site.email,
+        ReplyTo: data.email,
+        Subject: subject,
+        TextBody: textBody,
+        MessageStream: process.env.POSTMARK_STREAM ?? "outbound",
+      });
+      mailSent = true;
+    } catch (e) {
+      console.error("Postmark send failed", e);
+    }
+  }
+
+  if (!mailSent && resendKey) {
     try {
       const resend = new Resend(resendKey);
-      const wohnungLine = wohnung
-        ? `Wohnung: ${wohnung.shortTitle} (${wohnung.stadtteilName})\nLink: ${site.url}/wohnung/${wohnung.slug}\n\n`
-        : "";
       await resend.emails.send({
         from: process.env.RESEND_FROM ?? "roomluxe.de <noreply@roomluxe.de>",
         to: site.email,
         replyTo: data.email,
-        subject: `Neue Anfrage von ${data.name}${wohnung ? ` – ${wohnung.shortTitle}` : ""}`,
-        text: [
-          `${wohnungLine}Name: ${data.name}`,
-          `E-Mail: ${data.email}`,
-          data.phone ? `Telefon: ${data.phone}` : null,
-          data.subject ? `Betreff: ${data.subject}` : null,
-          data.moveInDate ? `Wunschtermin: ${data.moveInDate}` : null,
-          "",
-          "Nachricht:",
-          data.message ?? "(keine Nachricht)",
-          "",
-          "---",
-          `IP: ${ip ?? "?"}`,
-          `Quelle: ${sourceUrl ?? "?"}`,
-        ]
-          .filter(Boolean)
-          .join("\n"),
+        subject,
+        text: textBody,
       });
     } catch (e) {
-      console.error("Mail send failed", e);
-      // Wir antworten trotzdem 200 — DB-Log ist da
+      console.error("Resend send failed", e);
+      // DB-Log ist da → trotzdem 200
     }
   }
 
