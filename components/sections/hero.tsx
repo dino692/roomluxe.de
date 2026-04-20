@@ -131,6 +131,7 @@ export function Hero() {
               alt={heroImages[0].alt}
               fill
               priority
+              quality={72}
               sizes="(max-width: 1024px) 78vw, 39vw"
               className="object-cover"
             />
@@ -148,6 +149,7 @@ export function Hero() {
               src={heroImages[2].src}
               alt={heroImages[2].alt}
               fill
+              quality={72}
               sizes="42vw"
               className="object-cover"
             />
@@ -164,6 +166,7 @@ export function Hero() {
               src={heroImages[1].src}
               alt={heroImages[1].alt}
               fill
+              quality={72}
               sizes="44vw"
               className="object-cover"
             />
