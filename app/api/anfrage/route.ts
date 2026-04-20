@@ -93,6 +93,19 @@ export async function POST(req: NextRequest) {
   ]
     .filter(Boolean)
     .join("\n");
+  const htmlBody = buildHtmlBody({
+    name: data.name,
+    email: data.email,
+    phone: data.phone ?? undefined,
+    subject: data.subject ?? undefined,
+    moveInDate: data.moveInDate ?? undefined,
+    message: data.message ?? undefined,
+    wohnungTitle: wohnung?.shortTitle,
+    wohnungStadtteil: wohnung?.stadtteilName,
+    wohnungUrl: wohnung ? `${site.url}/wohnung/${wohnung.slug}` : undefined,
+    siteUrl: site.url,
+    siteName: site.name,
+  });
 
   const postmarkToken = process.env.POSTMARK_SERVER_TOKEN;
   const resendKey = process.env.RESEND_API_KEY;
@@ -107,6 +120,7 @@ export async function POST(req: NextRequest) {
         ReplyTo: data.email,
         Subject: subject,
         TextBody: textBody,
+        HtmlBody: htmlBody,
         MessageStream: process.env.POSTMARK_STREAM ?? "outbound",
       });
       mailSent = true;
@@ -127,6 +141,7 @@ export async function POST(req: NextRequest) {
         replyTo: data.email,
         subject,
         text: textBody,
+        html: htmlBody,
       });
     } catch (e) {
       console.error("Resend send failed", e);
@@ -135,4 +150,116 @@ export async function POST(req: NextRequest) {
   }
 
   return NextResponse.json({ ok: true });
+}
+
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function buildHtmlBody(d: {
+  name: string;
+  email: string;
+  phone?: string;
+  subject?: string;
+  moveInDate?: string;
+  message?: string;
+  wohnungTitle?: string;
+  wohnungStadtteil?: string;
+  wohnungUrl?: string;
+  siteUrl: string;
+  siteName: string;
+}): string {
+  const gold = "#b8862a";
+  const goldDark = "#8d6620";
+  const ink900 = "#2c2318";
+  const ink700 = "#4a3d2c";
+  const ink500 = "#6e5d44";
+  const cream50 = "#fffdf8";
+  const cream200 = "#f0e8da";
+  const pageBg = "#faf6f0";
+
+  const e = escapeHtml;
+  const row = (label: string, value?: string, isHtml = false) =>
+    value
+      ? `
+      <tr>
+        <td style="padding:0 0 6px 0;font-size:12px;font-weight:700;color:${goldDark};text-transform:uppercase;letter-spacing:0.06em;font-family:Georgia,'Times New Roman',serif;">${e(label)}</td>
+      </tr>
+      <tr>
+        <td style="padding:0 0 16px 0;">
+          <div style="background:${cream50};border:1px solid ${cream200};border-radius:10px;padding:14px 16px;font-size:15px;color:${ink900};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;word-break:break-word;">${isHtml ? value : e(value)}</div>
+        </td>
+      </tr>`
+      : "";
+
+  const wohnungRow =
+    d.wohnungTitle && d.wohnungUrl
+      ? row(
+          "Interessiert an Wohnung",
+          `<strong>${e(d.wohnungTitle)}</strong>${d.wohnungStadtteil ? ` · ${e(d.wohnungStadtteil)}` : ""}<br/><a href="${e(d.wohnungUrl)}" style="color:${gold};text-decoration:underline;">${e(d.wohnungUrl)}</a>`,
+          true,
+        )
+      : "";
+
+  const messageValue = d.message
+    ? e(d.message).replace(/\n/g, "<br/>")
+    : "<em>(keine Nachricht)</em>";
+
+  return `<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Neue Kontaktanfrage</title>
+</head>
+<body style="margin:0;padding:0;background:${pageBg};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:${ink900};">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:${pageBg};padding:24px 16px;">
+  <tr>
+    <td align="center">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;width:100%;background:${cream50};border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(44,35,24,0.06);">
+        <tr>
+          <td style="background:${gold};padding:40px 32px;text-align:center;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,253,248,0.75);margin-bottom:10px;">${e(d.siteName)}</div>
+            <h1 style="margin:0;color:${cream50};font-family:Georgia,'Times New Roman',serif;font-size:32px;font-weight:700;letter-spacing:-0.01em;">Neue Kontaktanfrage</h1>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:32px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              ${wohnungRow}
+              ${row("Name", d.name)}
+              ${row("E-Mail", `<a href="mailto:${e(d.email)}" style="color:${gold};text-decoration:none;">${e(d.email)}</a>`, true)}
+              ${row("Telefon", d.phone ?? "Nicht angegeben")}
+              ${row("Betreff", d.subject)}
+              ${row("Wunschtermin", d.moveInDate)}
+              <tr>
+                <td style="padding:0 0 6px 0;font-size:12px;font-weight:700;color:${goldDark};text-transform:uppercase;letter-spacing:0.06em;font-family:Georgia,'Times New Roman',serif;">Nachricht</td>
+              </tr>
+              <tr>
+                <td style="padding:0;">
+                  <div style="background:${cream50};border:1px solid ${cream200};border-radius:10px;padding:16px 18px;font-size:15px;line-height:1.55;color:${ink700};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${messageValue}</div>
+                </td>
+              </tr>
+            </table>
+            <div style="margin-top:24px;padding-top:20px;border-top:1px solid ${cream200};text-align:center;">
+              <p style="margin:0;font-size:12px;color:${ink500};">Antworte direkt auf diese E-Mail, um dem Interessenten zu schreiben.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:16px 32px 24px;text-align:center;background:${pageBg};">
+            <p style="margin:0;font-size:11px;color:${ink500};">Diese E-Mail wurde über das Kontaktformular auf <a href="${e(d.siteUrl)}" style="color:${ink700};text-decoration:underline;">${e(d.siteName)}</a> gesendet.</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`;
 }
