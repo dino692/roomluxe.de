@@ -57,6 +57,42 @@ export const ratgeber: RatgeberArtikel[] = [
       "Heizung, Wasser, Müll – was alles in den Nebenkosten steckt und worauf Sie als Mieter achten sollten.",
     publishedAt: "2025-11-22",
   },
+  {
+    slug: "2-zimmer-vs-3-zimmer-bad-vilbel",
+    category: "Mieten",
+    readTime: "6 Min. Lesezeit",
+    title: "2-Zimmer oder 3-Zimmer-Wohnung in Bad Vilbel – was passt zu mir?",
+    excerpt:
+      "Preis, Fläche, Nutzungsszenarien: Wir vergleichen 2- und 3-Zimmer-Wohnungen in Bad Vilbel und zeigen, wann welche Größe Sinn ergibt.",
+    publishedAt: "2026-04-20",
+  },
+  {
+    slug: "pendlerpauschale-bad-vilbel-frankfurt",
+    category: "Pendeln",
+    readTime: "6 Min. Lesezeit",
+    title: "Pendlerpauschale Bad Vilbel → Frankfurt: So viel Steuer sparen Sie",
+    excerpt:
+      "Entfernungspauschale, Mobilitätsprämie, Beispielrechnungen: Was Sie als Pendler zwischen Bad Vilbel und Frankfurt steuerlich absetzen können.",
+    publishedAt: "2026-04-20",
+  },
+  {
+    slug: "kaution-buergschaft-mietsicherheit",
+    category: "Kosten",
+    readTime: "5 Min. Lesezeit",
+    title: "Kaution, Bürgschaft & Mietsicherheit – was Vermieter verlangen dürfen",
+    excerpt:
+      "Gesetzliche Höchstgrenzen, zulässige Formen und praktische Tipps: Alles Wichtige zur Mietsicherheit beim Einzug in eine Mietwohnung.",
+    publishedAt: "2026-04-20",
+  },
+  {
+    slug: "umzug-nach-bad-vilbel-checkliste",
+    category: "Tipps",
+    readTime: "7 Min. Lesezeit",
+    title: "Umzug nach Bad Vilbel – die komplette Checkliste",
+    excerpt:
+      "Ummeldung, Schulen, Kitas, Ärzte, Internet: Die komplette Schritt-für-Schritt-Checkliste für Ihren Umzug nach Bad Vilbel.",
+    publishedAt: "2026-04-20",
+  },
 ];
 
 export const ratgeberCategories = [
