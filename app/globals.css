@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
+/* roomluxe Brand Theme — Tailwind v4 */
+@theme {
+  /* Brand */
+  --color-gold-50:  #fdfaf2;
+  --color-gold-100: #faf6e8;
+  --color-gold-200: #f0e8da;
+  --color-gold-300: #ede3d6;
+  --color-gold-400: #ddd0be;
+  --color-gold-500: #d4a84b;
+  --color-gold-600: #c99a38;
+  --color-gold-700: #b8862a;
+  --color-gold-800: #a07846;
+  --color-gold-900: #6b5320;
+
+  /* Cream / Background */
+  --color-cream-50:  #fffdf8;
+  --color-cream-100: #faf6f0;
+  --color-cream-200: #f0e8da;
+  --color-cream-300: #ede3d6;
+  --color-cream-400: #ddd0be;
+
+  /* Ink (text) */
+  --color-ink-900: #2c2318;
+  --color-ink-700: #4a3d2c;
+  --color-ink-500: #6e5d44;
+  --color-ink-300: #a99a82;
+
+  /* Sage Accent */
+  --color-sage-500: #5a7a6a;
+  --color-sage-300: #8aa898;
+
+  /* State */
+  --color-error: #dc2626;
+
+  /* Fonts */
+  --font-sans:    var(--font-dm-sans), system-ui, sans-serif;
+  --font-display: var(--font-lora), Georgia, serif;
+
+  /* Radii */
+  --radius-card: 1.5rem;
+  --radius-pill: 9999px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-cream-100);
+  --foreground: var(--color-ink-900);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Peach edge glow — wraps the whole page, distinctive of roomluxe.de */
+.bg-page-glow {
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 0%, color-mix(in oklab, var(--color-gold-700) 8%, transparent), transparent 70%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, color-mix(in oklab, var(--color-gold-700) 8%, transparent), transparent 70%),
+    var(--color-cream-100);
+}
+
+/* Soft card shadow used across the site */
+.shadow-card {
+  box-shadow:
+    0 1px 2px rgba(44, 35, 24, 0.04),
+    0 8px 24px -8px rgba(44, 35, 24, 0.08);
+}
+
+.shadow-card-lg {
+  box-shadow:
+    0 2px 4px rgba(44, 35, 24, 0.04),
+    0 24px 48px -12px rgba(44, 35, 24, 0.12);
+}
+
+/* Eyebrow line treatment used on landing sections */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-700);
+}
+
+/* Smooth focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-gold-700);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
