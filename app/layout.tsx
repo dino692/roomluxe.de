@@ -52,7 +52,6 @@ export const metadata: Metadata = {
     description: site.description,
   },
   twitter: { card: "summary_large_image", title: site.name, description: site.description },
-  icons: { icon: "/favicon.png", apple: "/favicon.png" },
 };
 
 const organizationLd = {
@@ -64,7 +63,7 @@ const organizationLd = {
       name: site.name,
       legalName: site.company.legal,
       url: site.url,
-      logo: `${site.url}/favicon.png`,
+      logo: `${site.url}/icon`,
       email: site.email,
       telephone: site.phoneE164,
       address: {

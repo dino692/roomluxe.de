@@ -387,7 +387,7 @@ export default async function RatgeberArticlePage({ params }: { params: Promise<
       "@type": "Organization",
       name: site.name,
       url: site.url,
-      logo: { "@type": "ImageObject", url: `${site.url}/favicon.png` },
+      logo: { "@type": "ImageObject", url: `${site.url}/icon` },
     },
     articleSection: a.category,
   };
