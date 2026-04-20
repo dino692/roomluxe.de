@@ -158,6 +158,176 @@ const bodies: Record<string, () => React.ReactNode> = {
       </ul>
     </>
   ),
+  "2-zimmer-vs-3-zimmer-bad-vilbel": () => (
+    <>
+      <p>
+        Eine der häufigsten Fragen beim Wohnungswechsel: Reicht eine 2-Zimmer-Wohnung aus – oder lieber gleich 3 Zimmer?
+        In Bad Vilbel ist die Preisdifferenz oft kleiner als erwartet, der Nutzen aber beträchtlich. Wir vergleichen beide Größen
+        nach Preis, Fläche, Lebenssituation und Wiederverkaufs- bzw. Weitervermietungspotenzial.
+      </p>
+      <h2>Fläche & Grundriss im Vergleich</h2>
+      <ul>
+        <li><strong>2-Zimmer-Wohnung:</strong> meist 45–60 m² – Wohn-/Essbereich + Schlafzimmer</li>
+        <li><strong>3-Zimmer-Wohnung:</strong> meist 65–90 m² – Wohnzimmer + Schlafzimmer + Arbeits-/Gästezimmer</li>
+      </ul>
+      <h2>Mietpreis-Vergleich in Bad Vilbel</h2>
+      <p>
+        Die Kaltmieten in Bad Vilbel liegen für 2-Zimmer-Wohnungen bei ca. <strong>660 € bis 900 €</strong>, für 3-Zimmer-Wohnungen bei <strong>825 € bis 1.275 €</strong>.
+        Pro Quadratmeter ist die 3-Zimmer-Wohnung häufig sogar günstiger – Vermieter kalkulieren kleinere Wohnungen mit höherem Aufschlag.
+      </p>
+      <h2>Wann reicht eine 2-Zimmer-Wohnung?</h2>
+      <ul>
+        <li>Single oder Paar ohne Kinderwunsch</li>
+        <li>Berufspendler, die nur abends und am Wochenende zuhause sind</li>
+        <li>Wer möglichst nah an die S-Bahn ziehen will – kleinere Wohnungen gibt's öfter zentral</li>
+      </ul>
+      <h2>Wann lohnt sich eine 3-Zimmer-Wohnung?</h2>
+      <ul>
+        <li>Homeoffice: ein separates Arbeitszimmer ist steuerlich absetzbar</li>
+        <li>Paar mit Kinderwunsch – Wohnungssuche mit Baby ist stressig</li>
+        <li>Häufiger Besuch aus Frankfurt oder dem Umland</li>
+        <li>Hobbys, die Platz brauchen (Musik, Sport, Kreativarbeit)</li>
+      </ul>
+      <h2>Fazit</h2>
+      <p>
+        Wer länger als 2 Jahre in der Wohnung bleiben will und Homeoffice macht, sollte direkt zur 3-Zimmer-Variante greifen.
+        Die Monatsdifferenz (ca. 150–200 €) amortisiert sich über eingesparte Umzugskosten beim nächsten Wechsel und über die bessere Homeoffice-Pauschale.
+      </p>
+    </>
+  ),
+  "pendlerpauschale-bad-vilbel-frankfurt": () => (
+    <>
+      <p>
+        Wer von Bad Vilbel nach Frankfurt pendelt, kann einen erheblichen Betrag steuerlich geltend machen.
+        Egal ob Sie mit der S-Bahn, dem Auto oder dem Fahrrad pendeln – die sogenannte Entfernungspauschale (umgangssprachlich „Pendlerpauschale") lohnt sich fast immer.
+      </p>
+      <h2>Wie viel Kilometer zählt das Finanzamt?</h2>
+      <p>
+        Entscheidend ist die <strong>einfache Entfernung</strong> zwischen Wohnung und erster Tätigkeitsstätte.
+        Von der Kernstadt Bad Vilbel zum Frankfurter Hauptbahnhof sind es ca. <strong>14 km</strong> – unabhängig vom gewählten Verkehrsmittel.
+      </p>
+      <h2>Aktuelle Sätze 2026</h2>
+      <ul>
+        <li><strong>0,30 €/km</strong> für die ersten 20 Kilometer</li>
+        <li><strong>0,38 €/km</strong> ab dem 21. Kilometer</li>
+        <li>Gilt pro Arbeitstag – nicht pro Fahrt</li>
+      </ul>
+      <h2>Beispielrechnung Bad Vilbel → Frankfurt</h2>
+      <p>
+        14 km × 0,30 € = <strong>4,20 € pro Arbeitstag</strong>. Bei 220 Arbeitstagen im Jahr sind das <strong>924 €</strong> Werbungskosten.
+        Bei einem Grenzsteuersatz von 35 % sparen Sie damit rund <strong>325 € Steuern pro Jahr</strong> – ganz ohne Belege.
+      </p>
+      <h2>Höhere Pauschale für weiter entfernte Stadtteile</h2>
+      <p>
+        Aus Södel oder Massenheim sind es je nach Arbeitsplatz 18–22 km. Die ersten 20 km werden mit 0,30 € angesetzt,
+        jeder weitere Kilometer mit 0,38 €. Das lohnt sich gerade für Pendler in die südlichen oder östlichen Frankfurter Stadtteile.
+      </p>
+      <h2>Was Sie zusätzlich absetzen können</h2>
+      <ul>
+        <li>Deutschlandticket oder Monatskarte (als Werbungskosten)</li>
+        <li>Arbeitsmittel, Fortbildungen</li>
+        <li>Homeoffice-Pauschale (6 €/Tag, max. 1.260 €/Jahr)</li>
+      </ul>
+      <h2>Mobilitätsprämie für Geringverdiener</h2>
+      <p>
+        Wer unter dem Grundfreibetrag verdient und keine Steuern zahlt, kann trotzdem profitieren: Die Mobilitätsprämie erstattet
+        14 % der Pauschale ab km 21 als Bargeld. Antrag über die Steuererklärung.
+      </p>
+    </>
+  ),
+  "kaution-buergschaft-mietsicherheit": () => (
+    <>
+      <p>
+        Fast jeder Vermieter verlangt beim Einzug eine Mietsicherheit. Was dabei erlaubt ist und welche Form für Sie am besten passt,
+        ist gesetzlich geregelt. Ein Überblick für Mieter.
+      </p>
+      <h2>Wie hoch darf die Kaution maximal sein?</h2>
+      <p>
+        § 551 BGB erlaubt maximal <strong>drei Nettokaltmieten</strong>. Bei einer Kaltmiete von 800 € dürfen also höchstens 2.400 € verlangt werden.
+        Mehr ist unzulässig – egal ob mündlich zugesagt oder im Vertrag vermerkt.
+      </p>
+      <h2>Kaution in drei Raten zahlen</h2>
+      <p>
+        Mieter dürfen die Kaution in <strong>drei gleichen monatlichen Raten</strong> zahlen. Die erste Rate ist zu Beginn des Mietverhältnisses fällig,
+        die beiden weiteren mit den zwei folgenden Mieten.
+      </p>
+      <h2>Wo wird die Kaution angelegt?</h2>
+      <p>
+        Der Vermieter muss die Kaution auf einem <strong>separaten, verpfändeten Mietkautionskonto</strong> anlegen – getrennt von seinem Privatvermögen.
+        Zinsen stehen dem Mieter zu. Ein eigenes Konto können Sie auch selbst eröffnen und dem Vermieter verpfänden.
+      </p>
+      <h2>Alternativen zur Barkaution</h2>
+      <ul>
+        <li><strong>Bürgschaft:</strong> Eltern, Freunde oder eine Bank bürgen für den Betrag – Sie behalten Ihr Kapital</li>
+        <li><strong>Mietkautionsversicherung:</strong> eine Versicherung bürgt gegen Jahresbeitrag (ca. 5 % der Kautionssumme)</li>
+        <li><strong>Mietkautionssparbuch:</strong> Sie legen die Kaution selbst an, verpfänden das Sparbuch</li>
+      </ul>
+      <h2>Rückzahlung am Ende des Mietverhältnisses</h2>
+      <p>
+        Nach Ende des Mietverhältnisses hat der Vermieter eine angemessene Prüffrist – üblicherweise <strong>3 bis 6 Monate</strong>.
+        Einbehalten darf er nur Beträge für konkret belegte Schäden oder offene Nebenkostenabrechnungen.
+        Für strittige Nebenkosten darf ein Teilbetrag zurückgehalten werden, der Rest muss ausgezahlt werden.
+      </p>
+      <h2>Bei roomluxe.de</h2>
+      <p>
+        Wir arbeiten mit Standardverträgen nach Mieterbund-Muster und akzeptieren Barkaution, Bürgschaft und Mietkautionsversicherung gleichermaßen.
+      </p>
+    </>
+  ),
+  "umzug-nach-bad-vilbel-checkliste": () => (
+    <>
+      <p>
+        Ein Umzug ist anstrengend – aber mit einer guten Checkliste reibungsloser. Damit Sie nichts vergessen,
+        haben wir die wichtigsten Schritte rund um den Umzug nach Bad Vilbel zusammengestellt.
+      </p>
+      <h2>8 Wochen vor dem Umzug</h2>
+      <ul>
+        <li>Mietvertrag alter Wohnung kündigen (i.d.R. 3 Monate Kündigungsfrist)</li>
+        <li>Umzugsfirma oder Leih-Transporter anfragen</li>
+        <li>Sperrmüll-Termin bei der alten Gemeinde buchen</li>
+        <li>Urlaub für Umzugstage einreichen</li>
+      </ul>
+      <h2>4 Wochen vorher</h2>
+      <ul>
+        <li>Strom- und Gasvertrag kündigen und neuen Anbieter für Bad Vilbel auswählen</li>
+        <li>Internetanschluss für die neue Wohnung beantragen (Unitymedia/Vodafone, Telekom, 1&amp;1 – Verfügbarkeit per PLZ prüfen)</li>
+        <li>Nachsendeauftrag bei der Deutschen Post einrichten (6 Monate, ca. 30 €)</li>
+        <li>Ummeldung bei der Stadt Bad Vilbel terminieren (Pflicht innerhalb von 14 Tagen nach Einzug)</li>
+      </ul>
+      <h2>Ummeldung in Bad Vilbel</h2>
+      <p>
+        Die Ummeldung erfolgt beim <strong>Bürgerbüro der Stadt Bad Vilbel</strong>, Niddastraße 5.
+        Termin online vereinbaren. Mitbringen: Personalausweis, Wohnungsgeberbestätigung, ggf. Reisepass, Heiratsurkunde.
+        Die Ummeldung ist kostenlos.
+      </p>
+      <h2>Schulen & Kitas in Bad Vilbel</h2>
+      <ul>
+        <li><strong>Kitas:</strong> zentrale Anmeldung über den Kita-Navigator der Stadt</li>
+        <li><strong>Grundschulen:</strong> Schulbezirks-Prinzip – Zuteilung nach Wohnadresse</li>
+        <li><strong>Weiterführende Schulen:</strong> Georg-Büchner-Schule (Gymnasium, IGS), Regenbogenschule (Grundschule Dortelweil)</li>
+      </ul>
+      <h2>Ärzte & Apotheken</h2>
+      <p>
+        Bad Vilbel hat mehr als 30 Hausärzte, zahlreiche Fachärzte und 8 Apotheken. Eine komplette Liste führt die KV Hessen
+        (arztauskunft-hessen.de). Termin beim Hausarzt vor dem Umzug sichern – gerade die Kinderärzte sind oft monatelang ausgebucht.
+      </p>
+      <h2>Am Umzugstag</h2>
+      <ul>
+        <li>Zählerstände alte + neue Wohnung notieren (Strom, Gas, Wasser)</li>
+        <li>Übergabeprotokoll gemeinsam mit Vor- und Nachmieter ausfüllen</li>
+        <li>Schlüssel zählen und Erhalt quittieren</li>
+        <li>Namensschilder an Briefkasten und Klingel</li>
+      </ul>
+      <h2>Die ersten 2 Wochen</h2>
+      <ul>
+        <li>Ummeldung beim Bürgerbüro</li>
+        <li>Kfz-Ummeldung bei der Zulassungsstelle (Hessen-Kennzeichen bleibt erhalten, falls Sie schon aus Hessen kommen)</li>
+        <li>Bank, Versicherungen, Arbeitgeber informieren</li>
+        <li>Rundfunkbeitrag: Adresse ändern (rundfunkbeitrag.de)</li>
+        <li>Hausarzt, Zahnarzt, Kinderarzt neu wählen</li>
+      </ul>
+    </>
+  ),
   "nebenkosten-mietwohnung": () => (
     <>
       <p>
