@@ -15,9 +15,10 @@ export function AnfrageForm({ wohnungSlug, variant = "full" }: Props) {
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
     setStatus("submitting");
     setError(null);
-    const data = Object.fromEntries(new FormData(e.currentTarget));
+    const data = Object.fromEntries(new FormData(form));
     try {
       const res = await fetch("/api/anfrage", {
         method: "POST",
@@ -28,8 +29,8 @@ export function AnfrageForm({ wohnungSlug, variant = "full" }: Props) {
         const j = await res.json().catch(() => ({}));
         throw new Error(j.error ?? "Anfrage konnte nicht gesendet werden.");
       }
+      form.reset();
       setStatus("success");
-      e.currentTarget.reset();
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Unbekannter Fehler";
       setError(msg);
