@@ -61,11 +61,22 @@ export default async function SlugPage({
   notFound();
 }
 
+// Approximate Bad Vilbel district coordinates (for Place schema)
+const stadtteilGeo: Record<string, { lat: number; lng: number }> = {
+  "bad-vilbel-kernstadt": { lat: 50.18, lng: 8.738 },
+  "bad-vilbel-dortelweil": { lat: 50.199, lng: 8.745 },
+  "bad-vilbel-heilsberg": { lat: 50.172, lng: 8.755 },
+  "bad-vilbel-gronau": { lat: 50.16, lng: 8.73 },
+  "bad-vilbel-massenheim": { lat: 50.187, lng: 8.769 },
+  "bad-vilbel-soedel": { lat: 50.193, lng: 8.78 },
+};
+
 // ----- STADTTEIL -----
 function StadtteilPage({ slug }: { slug: string }) {
   const s = stadtteilBySlug(slug)!;
   const wohnungen = wohnungenInStadtteil(slug);
   const neighbors = s.neighbors.map(stadtteilBySlug).filter(Boolean) as NonNullable<ReturnType<typeof stadtteilBySlug>>[];
+  const geo = stadtteilGeo[slug];
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -77,11 +88,49 @@ function StadtteilPage({ slug }: { slug: string }) {
     ],
   };
 
+  const placeLd = {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "@id": `${site.url}/${s.slug}#place`,
+    name: `Bad Vilbel ${s.name}`,
+    description: s.intro,
+    url: `${site.url}/${s.slug}`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Bad Vilbel",
+      addressRegion: s.name,
+      addressCountry: "DE",
+    },
+    ...(geo
+      ? {
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: geo.lat,
+            longitude: geo.lng,
+          },
+        }
+      : {}),
+    containedInPlace: {
+      "@type": "City",
+      name: "Bad Vilbel",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bad Vilbel",
+        addressRegion: "Hessen",
+        addressCountry: "DE",
+      },
+    },
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(placeLd) }}
       />
       {/* Hero */}
       <section className="px-5 sm:px-8 pt-8">
