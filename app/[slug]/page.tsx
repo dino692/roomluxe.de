@@ -23,26 +23,44 @@ export async function generateStaticParams() {
   ];
 }
 
+function trimDescription(s: string, max = 155): string {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  return cut.slice(0, lastSpace > 100 ? lastSpace : max - 1).trimEnd() + "…";
+}
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<RouteParams>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const url = `${site.url}/${slug}`;
   const stadtteil = stadtteilBySlug(slug);
   if (stadtteil) {
+    const title = `Wohnung mieten Bad Vilbel ${stadtteil.name}`;
+    const description = trimDescription(
+      `Mietwohnungen in Bad Vilbel ${stadtteil.name}: ${stadtteil.priceRange}, ${stadtteil.sbahnTimeShort} nach Frankfurt. ${stadtteil.characterShort}. Privat vermietet, ohne Provision.`,
+    );
     return {
-      title: `Wohnung mieten Bad Vilbel ${stadtteil.name}`,
-      description: stadtteil.intro,
+      title,
+      description,
       alternates: { canonical: `/${slug}` },
+      openGraph: { title, description, url },
     };
   }
   const hub = seoHubBySlug(slug);
   if (hub) {
     return {
       title: hub.metaTitle,
-      description: hub.metaDescription,
+      description: trimDescription(hub.metaDescription),
       alternates: { canonical: `/${slug}` },
+      openGraph: {
+        title: hub.metaTitle,
+        description: trimDescription(hub.metaDescription),
+        url,
+      },
     };
   }
   return {};

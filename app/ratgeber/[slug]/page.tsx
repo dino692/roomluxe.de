@@ -18,10 +18,14 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const a = ratgeberBySlug(slug);
   if (!a) return {};
+  const url = `${site.url}/ratgeber/${slug}`;
+  // Tighten very long titles for SERP rendering (<= ~58 chars before brand suffix)
+  const seoTitle = a.title.length > 58 ? a.title.slice(0, 56).replace(/\s+\S*$/, "") + "…" : a.title;
   return {
-    title: a.title,
+    title: seoTitle,
     description: a.excerpt,
     alternates: { canonical: `/ratgeber/${slug}` },
+    openGraph: { title: seoTitle, description: a.excerpt, url, type: "article" },
   };
 }
 
@@ -440,6 +444,32 @@ export default async function RatgeberArticlePage({ params }: { params: Promise<
           <div className="mt-10 prose-content [&_h2]:font-display [&_h2]:text-2xl [&_h2]:text-ink-900 [&_h2]:mt-10 [&_h2]:mb-4 [&_h3]:font-display [&_h3]:text-xl [&_h3]:text-ink-900 [&_h3]:mt-6 [&_h3]:mb-3 [&_p]:text-ink-700 [&_p]:leading-relaxed [&_p]:my-4 [&_ul]:my-4 [&_ul]:space-y-2 [&_li]:text-ink-700 [&_li]:relative [&_li]:pl-5 [&_li]:before:content-[''] [&_li]:before:absolute [&_li]:before:left-0 [&_li]:before:top-2.5 [&_li]:before:size-1.5 [&_li]:before:rounded-full [&_li]:before:bg-gold-700">
             <Body />
           </div>
+
+          {/* Verwandte Artikel — interne Verlinkung */}
+          <aside className="mt-16 pt-10 border-t border-gold-300/40">
+            <p className="text-xs uppercase tracking-wider font-semibold text-gold-700">Verwandte Artikel</p>
+            <h2 className="mt-3 font-display text-2xl text-ink-900">Mehr Wissen rund ums Wohnen in Bad Vilbel</h2>
+            <ul className="mt-6 grid sm:grid-cols-2 gap-3">
+              {ratgeber
+                .filter((r) => r.slug !== a.slug)
+                .slice(0, 4)
+                .map((r) => (
+                  <li key={r.slug}>
+                    <Link
+                      href={`/ratgeber/${r.slug}`}
+                      className="group flex items-start gap-3 rounded-2xl bg-cream-50 border border-gold-300/30 p-4 hover:border-gold-700/40 transition"
+                    >
+                      <span className="mt-0.5 text-xs font-semibold text-gold-700 uppercase tracking-wide whitespace-nowrap">{r.category}</span>
+                      <span className="text-ink-900 group-hover:text-gold-700 transition leading-snug">{r.title}</span>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+            <p className="mt-8 text-sm text-ink-700">
+              Oder direkt zu unseren <Link href="/mietwohnung-bad-vilbel" className="text-gold-700 underline">Wohnungen in Bad Vilbel</Link>{" "}
+              und den <Link href="/bad-vilbel-kernstadt" className="text-gold-700 underline">Stadtteilen</Link>.
+            </p>
+          </aside>
         </div>
       </article>
 

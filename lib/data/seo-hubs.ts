@@ -27,7 +27,7 @@ export const seoHubs: SeoHub[] = [
     intro:
       "Sie suchen eine Mietwohnung in Bad Vilbel? Bei roomluxe.de finden Sie gepflegte Wohnungen in allen Stadtteilen – von der lebhaften Kernstadt über das familienfreundliche Dortelweil bis zum idyllischen Gronau. Direkt vom privaten Vermieter, ohne Makler und ohne Provision.",
     metaTitle:
-      "Mietwohnung Bad Vilbel: provisionsfrei vom Eigentümer | roomluxe.de",
+      "Mietwohnung Bad Vilbel: provisionsfrei vom Eigentümer",
     metaDescription:
       "Mietwohnungen in Bad Vilbel direkt vom privaten Vermieter. Kernstadt, Dortelweil, Heilsberg & mehr. Ohne Makler, ohne Provision, transparent und persönlich.",
     sections: [
@@ -65,7 +65,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Möblierte Wohnungen Bad Vilbel – sofort einziehen",
     intro:
       "Sie suchen eine möblierte Wohnung in Bad Vilbel? Bei roomluxe.de finden Sie voll ausgestattete Apartments für Berufspendler, Projektmitarbeiter und alle, die schnell und unkompliziert wohnen wollen – ohne eigene Möbel, ohne Maklerkosten.",
-    metaTitle: "Möblierte Wohnungen Bad Vilbel | roomluxe.de",
+    metaTitle: "Möblierte Wohnungen Bad Vilbel",
     metaDescription:
       "Möblierte Wohnungen in Bad Vilbel direkt vom Vermieter. Voll ausgestattet, sofort einzugsbereit, ideal für Pendler und Projektmitarbeiter.",
     sections: [
@@ -99,7 +99,7 @@ export const seoHubs: SeoHub[] = [
     intro:
       "Wer Frankfurt arbeitet, aber Ruhe und mehr Wohnfläche wünscht, findet in Bad Vilbel die perfekte Alternative. 20 Minuten mit der S-Bahn vom Hauptbahnhof entfernt – möbliert und sofort verfügbar.",
     metaTitle:
-      "Möblierte Wohnung Frankfurt Umgebung – Bad Vilbel | roomluxe.de",
+      "Möblierte Wohnung Frankfurt Umgebung – Bad Vilbel",
     metaDescription:
       "Möblierte Wohnungen in Frankfurt-Umgebung. Bad Vilbel: 20 Min. mit der S-Bahn nach Frankfurt HBF, ruhig und voll ausgestattet.",
     sections: [
@@ -127,7 +127,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Wohnen auf Zeit Bad Vilbel – flexibel & möbliert",
     intro:
       "Wohnen auf Zeit in Bad Vilbel: möblierte Apartments für 1 bis 12 Monate. Ideal für Pendler, Projektmitarbeiter und alle, die übergangsweise eine eigene Wohnung brauchen.",
-    metaTitle: "Wohnen auf Zeit Bad Vilbel | roomluxe.de",
+    metaTitle: "Wohnen auf Zeit Bad Vilbel",
     metaDescription:
       "Möblierte Wohnungen auf Zeit in Bad Vilbel. Flexibel, voll ausgestattet, S-Bahn nach Frankfurt in 20 Min.",
     sections: [
@@ -155,7 +155,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Privat vermietete Wohnungen in Bad Vilbel",
     intro:
       "Privat vermietet bedeutet: Sie sprechen direkt mit dem Eigentümer. Kein Makler, keine Plattform, keine Provision. Persönlich, transparent und fair.",
-    metaTitle: "Privat vermietete Wohnungen Bad Vilbel | roomluxe.de",
+    metaTitle: "Privat vermietete Wohnungen Bad Vilbel",
     metaDescription:
       "Wohnungen direkt vom privaten Eigentümer in Bad Vilbel. Ohne Makler, ohne Provision, persönlich und fair.",
     sections: [
@@ -183,7 +183,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Kurzzeitvermietung Bad Vilbel – tageweise oder für wenige Wochen",
     intro:
       "Sie brauchen eine Unterkunft in Bad Vilbel für ein paar Nächte oder Wochen? Unsere Kurzzeit-Apartments sind vollständig ausgestattet und kurzfristig verfügbar.",
-    metaTitle: "Kurzzeitvermietung Bad Vilbel | roomluxe.de",
+    metaTitle: "Kurzzeitvermietung Bad Vilbel",
     metaDescription:
       "Möblierte Apartments zur Kurzzeitvermietung in Bad Vilbel. Mindestens 3 Nächte, voll ausgestattet, S-Bahn nach Frankfurt.",
     sections: [
@@ -211,7 +211,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Wohnung mieten Karben – Nachbarstadt von Bad Vilbel",
     intro:
       "Karben grenzt direkt an Bad Vilbel und ist ähnlich gut an Frankfurt angebunden. Falls Sie in Karben suchen, lohnt sich auch ein Blick auf unsere Bad Vilbeler Angebote – nur wenige Minuten entfernt.",
-    metaTitle: "Wohnung mieten Karben & Bad Vilbel | roomluxe.de",
+    metaTitle: "Wohnung mieten Karben & Bad Vilbel",
     metaDescription:
       "Mietwohnungen in Karben und Bad Vilbel. Direkt vom privaten Eigentümer, S-Bahn-Anbindung nach Frankfurt.",
     sections: [
@@ -238,7 +238,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Wohnung mieten Frankfurt Nord – günstige Alternativen",
     intro:
       "Wohnungen in Frankfurt Nord werden teurer und seltener. Bad Vilbel grenzt direkt nördlich an Frankfurt und bietet die gleiche S-Bahn-Anbindung – zu deutlich günstigeren Mieten.",
-    metaTitle: "Wohnung mieten Frankfurt Nord – Bad Vilbel | roomluxe.de",
+    metaTitle: "Wohnung mieten Frankfurt Nord – Bad Vilbel",
     metaDescription:
       "Sie suchen eine Wohnung in Frankfurt Nord? Bad Vilbel ist die günstige Alternative direkt vor den Toren. 20 Min. mit der S-Bahn ins Zentrum.",
     sections: [
@@ -266,7 +266,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Ferienwohnung Bad Vilbel – privat & ruhig nahe Frankfurt",
     intro:
       "Verbringen Sie Ihren Aufenthalt in Bad Vilbel in einer privaten Ferienwohnung – ruhig, voll ausgestattet und in 20 Minuten am Frankfurter Hauptbahnhof.",
-    metaTitle: "Ferienwohnung Bad Vilbel | roomluxe.de",
+    metaTitle: "Ferienwohnung Bad Vilbel",
     metaDescription:
       "Private Ferienwohnungen in Bad Vilbel. Voll ausgestattet, ruhig und schnell in Frankfurt – ideal für Messe, Geschäftsreise oder Kurzurlaub.",
     sections: [
@@ -294,7 +294,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Monteurwohnungen Bad Vilbel – günstig, sauber, kurzfristig",
     intro:
       "Sie brauchen eine Monteurwohnung in Bad Vilbel oder Umgebung? Unsere voll ausgestatteten Apartments sind ideal für Handwerker, Bautrupps und Projektmitarbeiter.",
-    metaTitle: "Monteurwohnungen Bad Vilbel | roomluxe.de",
+    metaTitle: "Monteurwohnungen Bad Vilbel",
     metaDescription:
       "Monteurwohnungen in Bad Vilbel direkt vom Eigentümer. Sauber, voll ausgestattet, mit Parkplatz und WLAN.",
     sections: [
@@ -324,7 +324,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Monteurzimmer Bad Vilbel – einzeln oder im Team",
     intro:
       "Statt enger Pension lieber eigenes Zimmer in einer voll ausgestatteten Wohnung? Unsere Monteurzimmer in Bad Vilbel bieten Komfort und Privatsphäre auch für längere Einsätze.",
-    metaTitle: "Monteurzimmer Bad Vilbel | roomluxe.de",
+    metaTitle: "Monteurzimmer Bad Vilbel",
     metaDescription:
       "Monteurzimmer in Bad Vilbel. Einzeln oder als ganze Wohnung für Team-Belegung – komfortabel, sauber und mit Parkplatz.",
     sections: [
@@ -352,7 +352,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Unterkunft für Monteure & Firmen im Rhein-Main-Gebiet",
     intro:
       "Suchen Sie eine professionelle Monteur-Unterkunft für Ihr Team oder einzelne Mitarbeiter im Großraum Frankfurt? Wir vermieten direkt an Firmen, mit Rechnung und individuellen Konditionen.",
-    metaTitle: "Unterkunft Monteure Frankfurt | roomluxe.de",
+    metaTitle: "Unterkunft Monteure Frankfurt",
     metaDescription:
       "Firmen-Unterkünfte für Monteure & Bautrupps in Bad Vilbel und Umgebung. Direktvermietung mit Rechnung, ideal für längere Einsätze.",
     sections: [
@@ -380,7 +380,7 @@ export const seoHubs: SeoHub[] = [
     h1: "Wohnung an der S-Bahn nach Frankfurt – Pendeln aus Bad Vilbel",
     intro:
       "Sie wollen in Frankfurt arbeiten, aber im Grünen wohnen? Bad Vilbel hat zwei direkte S-Bahn-Anbindungen (S1 und S6) – Sie sind in 20 Minuten am Hauptbahnhof.",
-    metaTitle: "Wohnung S-Bahn Frankfurt – Pendeln aus Bad Vilbel | roomluxe.de",
+    metaTitle: "Wohnung S-Bahn Frankfurt – Pendeln aus Bad Vilbel",
     metaDescription:
       "Wohnungen mit direkter S-Bahn-Anbindung nach Frankfurt. Bad Vilbel: 20 Min. zum HBF, deutlich günstiger als Frankfurt-Innenstadt.",
     sections: [

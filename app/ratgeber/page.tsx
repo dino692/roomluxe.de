@@ -1,15 +1,23 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { ButtonLink } from "@/components/ui/button";
-import { RatgeberCard } from "@/components/sections/ratgeber-card";
-import { ratgeber, ratgeberCategories } from "@/lib/data/ratgeber";
+import { RatgeberFilteredList } from "@/components/sections/ratgeber-list";
+import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Ratgeber – Wohnen in Bad Vilbel",
+  description:
+    "Mietpreise, Stadtteile, Pendeln und Tipps rund ums Wohnen in Bad Vilbel. Praktische Ratgeber-Artikel von roomluxe.de.",
+  alternates: { canonical: "/ratgeber" },
+  openGraph: {
+    title: "Ratgeber – Wohnen in Bad Vilbel",
+    description:
+      "Mietpreise, Stadtteile, Pendeln und Tipps rund ums Wohnen in Bad Vilbel.",
+    url: `${site.url}/ratgeber`,
+  },
+};
 
 export default function RatgeberIndexPage() {
-  const [filter, setFilter] = useState<(typeof ratgeberCategories)[number]>("Alle");
-  const list = filter === "Alle" ? ratgeber : ratgeber.filter((a) => a.category === filter);
-
   return (
     <>
       <section className="px-5 sm:px-8 pt-12">
@@ -21,39 +29,16 @@ export default function RatgeberIndexPage() {
           <p className="mt-4 text-lg text-ink-700 max-w-2xl">
             Alles was Sie wissen sollten – Mietpreise, Stadtteile, Pendeln nach Frankfurt.
           </p>
-
-          <div className="mt-10 flex flex-wrap gap-2">
-            {ratgeberCategories.map((c) => (
-              <button
-                key={c}
-                onClick={() => setFilter(c)}
-                className={`px-5 py-2 rounded-pill text-sm font-medium transition ${
-                  filter === c
-                    ? "bg-gold-700 text-white"
-                    : "bg-cream-50 text-ink-700 border border-gold-300/40 hover:bg-gold-100 hover:text-gold-700"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-5 sm:px-8 mt-12">
-        <div className="mx-auto max-w-7xl grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {list.map((a) => (
-            <RatgeberCard key={a.slug} a={a} />
-          ))}
+          <RatgeberFilteredList />
         </div>
       </section>
 
       <section className="px-5 sm:px-8 mt-20 mb-8">
         <div className="mx-auto max-w-7xl">
           <div className="rounded-[2rem] bg-cream-200 border border-gold-300/40 p-10 sm:p-14 text-center">
-            <h3 className="font-display text-3xl sm:text-4xl text-ink-900">
+            <h2 className="font-display text-3xl sm:text-4xl text-ink-900">
               Passende Wohnung gefunden?
-            </h3>
+            </h2>
             <p className="mt-4 text-ink-700">Direkt vom Eigentümer – kein Makler.</p>
             <div className="mt-8">
               <ButtonLink href="/mietwohnung-bad-vilbel" size="lg" withArrow>
