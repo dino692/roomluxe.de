@@ -3,11 +3,13 @@ import { stadtteile } from "@/lib/data/stadtteile";
 
 const wohnformen = [
   { href: "/moeblierte-wohnungen", label: "Möblierte Wohnungen" },
+  { href: "/moeblierte-wohnung-frankfurt-umgebung", label: "Möbliert · Frankfurt-Umgebung" },
   { href: "/wohnen-auf-zeit", label: "Wohnen auf Zeit" },
   { href: "/kurzzeitvermietung", label: "Kurzzeitvermietung" },
   { href: "/privat-vermietet", label: "Provisionsfrei mieten" },
   { href: "/mietwohnung-bad-vilbel", label: "Mietwohnungen" },
   { href: "/ferienwohnung-bad-vilbel", label: "Ferienwohnung" },
+  { href: "/wohnung-mieten-karben", label: "Karben" },
 ];
 
 const monteur = [

@@ -58,10 +58,20 @@ export async function generateMetadata({
   const { slug } = await params;
   const w = wohnungBySlug(slug);
   if (!w) return {};
+  const title = `${w.rooms}-Zimmer-Wohnung Bad Vilbel ${w.stadtteilName}`;
+  const description =
+    w.description.intro.length > 155
+      ? w.description.intro.slice(0, 154).replace(/\s+\S*$/, "") + "…"
+      : w.description.intro;
   return {
-    title: `${w.rooms}-Zimmer-Wohnung Bad Vilbel ${w.stadtteilName}`,
-    description: w.description.intro,
+    title,
+    description,
     alternates: { canonical: `/wohnung/${slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `${site.url}/wohnung/${slug}`,
+    },
   };
 }
 

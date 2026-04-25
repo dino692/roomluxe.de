@@ -73,7 +73,9 @@ const organizationLd = {
         addressLocality: site.company.city,
         addressCountry: "DE",
       },
-      founder: site.company.representatives,
+      founder: site.company.representatives
+        .split(/\s*&\s*/)
+        .map((n) => ({ "@type": "Person", name: n })),
       areaServed: [
         { "@type": "City", name: "Bad Vilbel" },
         { "@type": "City", name: "Frankfurt am Main" },

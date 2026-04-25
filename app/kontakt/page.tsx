@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Kontakt – roomluxe.de Bad Vilbel",
   description: "Schreiben Sie uns oder rufen Sie direkt an. Wir freuen uns auf Sie.",
   alternates: { canonical: "/kontakt" },
+  openGraph: {
+    title: "Kontakt – roomluxe.de Bad Vilbel",
+    description: "Schreiben Sie uns oder rufen Sie direkt an.",
+    url: `${site.url}/kontakt`,
+  },
 };
 
 const realEstateAgentLd = {
