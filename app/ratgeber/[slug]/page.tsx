@@ -5,6 +5,7 @@ import { Clock, ArrowLeft } from "lucide-react";
 import { ratgeber, ratgeberBySlug } from "@/lib/data/ratgeber";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CtaBand } from "@/components/sections/cta-band";
+import { QuickAnswer } from "@/components/sections/quick-answer";
 import { stadtteile } from "@/lib/data/stadtteile";
 import { site } from "@/lib/site";
 
@@ -33,6 +34,16 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 const bodies: Record<string, () => React.ReactNode> = {
   "mietpreise-bad-vilbel-2025": () => (
     <>
+      <QuickAnswer>
+        <p>
+          Eine Mietwohnung in <strong>Bad Vilbel</strong> kostet 2026 durchschnittlich{" "}
+          <strong>11–17 €/m² Kaltmiete</strong>, abhängig vom Stadtteil:
+          Kernstadt 15–17 €, Dortelweil 13–15 €, Heilsberg 12–14 €, Gronau 11–13 €,
+          Massenheim 12–15 €, Södel 11–13 €. Eine 75 m² 3-Zimmer-Wohnung kostet
+          zwischen 825 € (Södel) und 1.275 € (Kernstadt) Kaltmiete pro Monat.
+          Hinzu kommen 2,50–3,50 €/m² Nebenkosten.
+        </p>
+      </QuickAnswer>
       <p>
         Wer 2026 eine Mietwohnung in Bad Vilbel sucht, fragt sich: Was kostet das eigentlich?
         Die Antwort hängt stark vom Stadtteil, von der Wohnungsgröße und dem Baujahr ab.
@@ -69,6 +80,15 @@ const bodies: Record<string, () => React.ReactNode> = {
   ),
   "pendeln-bad-vilbel-frankfurt": () => (
     <>
+      <QuickAnswer>
+        <p>
+          Von <strong>Bad Vilbel</strong> nach <strong>Frankfurt Hauptbahnhof</strong> fahren
+          die S-Bahn-Linien <strong>S1 und S6</strong> in <strong>20–22 Minuten</strong>.
+          Im Berufsverkehr im 15-Minuten-Takt, sonst alle 30 Minuten. Bad Vilbel liegt in
+          RMV-Tarifzone 50; die Monatskarte kostet ca. 90 €. Mit dem{" "}
+          <strong>Deutschlandticket</strong> (49 €/Monat) fahren Sie deutschlandweit.
+        </p>
+      </QuickAnswer>
       <p>
         Bad Vilbel ist eine der bestangebundenen Pendlerstädte rund um Frankfurt.
         Mit zwei S-Bahn-Linien (S1 und S6) erreichen Sie das Frankfurter Stadtzentrum schnell und entspannt.
@@ -100,6 +120,17 @@ const bodies: Record<string, () => React.ReactNode> = {
   ),
   "wohnlagen-bad-vilbel-vergleich": () => (
     <>
+      <QuickAnswer>
+        <p>
+          <strong>Bad Vilbel</strong> hat 6 Stadtteile mit deutlich unterschiedlichem Charakter:{" "}
+          <strong>Kernstadt</strong> (zentral, S-Bahn, 15–17 €/m²),{" "}
+          <strong>Dortelweil</strong> (familienfreundlich, eigene S-Bahn, 13–15 €/m²),{" "}
+          <strong>Heilsberg</strong> (erhöht, Aussicht, 12–14 €/m²),{" "}
+          <strong>Gronau</strong> (Nidda-Auen, 11–13 €/m²),{" "}
+          <strong>Massenheim</strong> (ländlich, 12–15 €/m²),{" "}
+          <strong>Södel</strong> (kleinstes Dorf, 11–13 €/m²).
+        </p>
+      </QuickAnswer>
       <p>
         Bad Vilbel besteht aus sechs Stadtteilen, die sich in Charakter, Mietpreis und Anbindung deutlich unterscheiden.
         Welcher Stadtteil passt zu Ihren Wünschen? Hier ist unser ausführlicher Vergleich.
@@ -164,6 +195,16 @@ const bodies: Record<string, () => React.ReactNode> = {
   ),
   "2-zimmer-vs-3-zimmer-bad-vilbel": () => (
     <>
+      <QuickAnswer>
+        <p>
+          In <strong>Bad Vilbel</strong> kosten <strong>2-Zimmer-Wohnungen</strong>{" "}
+          (45–60 m²) ca. <strong>660–900 € Kaltmiete</strong>,{" "}
+          <strong>3-Zimmer-Wohnungen</strong> (65–90 m²) ca.{" "}
+          <strong>825–1.275 € Kaltmiete</strong>. Pro Quadratmeter sind 3-Zimmer-Wohnungen
+          oft sogar günstiger. Faustregel: Wer länger als 2 Jahre bleibt oder Homeoffice
+          macht, fährt mit 3 Zimmern besser.
+        </p>
+      </QuickAnswer>
       <p>
         Eine der häufigsten Fragen beim Wohnungswechsel: Reicht eine 2-Zimmer-Wohnung aus – oder lieber gleich 3 Zimmer?
         In Bad Vilbel ist die Preisdifferenz oft kleiner als erwartet, der Nutzen aber beträchtlich. Wir vergleichen beide Größen
@@ -201,6 +242,16 @@ const bodies: Record<string, () => React.ReactNode> = {
   ),
   "pendlerpauschale-bad-vilbel-frankfurt": () => (
     <>
+      <QuickAnswer>
+        <p>
+          Pendler von <strong>Bad Vilbel nach Frankfurt</strong> (ca. 14 km einfache Strecke)
+          können <strong>0,30 €/km für die ersten 20 km</strong> als Entfernungspauschale
+          ansetzen, ab dem 21. km{" "}
+          <strong>0,38 €/km</strong>. Bei 220 Arbeitstagen im Jahr ergeben sich{" "}
+          <strong>~924 € Werbungskosten</strong>, was bei 35 % Grenzsteuersatz rund{" "}
+          <strong>325 € Steuerersparnis</strong> pro Jahr bedeutet.
+        </p>
+      </QuickAnswer>
       <p>
         Wer von Bad Vilbel nach Frankfurt pendelt, kann einen erheblichen Betrag steuerlich geltend machen.
         Egal ob Sie mit der S-Bahn, dem Auto oder dem Fahrrad pendeln – die sogenannte Entfernungspauschale (umgangssprachlich „Pendlerpauschale") lohnt sich fast immer.
@@ -241,6 +292,16 @@ const bodies: Record<string, () => React.ReactNode> = {
   ),
   "kaution-buergschaft-mietsicherheit": () => (
     <>
+      <QuickAnswer>
+        <p>
+          Nach <strong>§ 551 BGB</strong> darf die Mietkaution{" "}
+          <strong>maximal drei Nettokaltmieten</strong> betragen. Mieter dürfen sie in{" "}
+          <strong>drei gleichen monatlichen Raten</strong> zahlen. Die Kaution muss auf einem
+          separaten, verpfändeten <strong>Mietkautionskonto</strong> angelegt werden;
+          Zinsen stehen dem Mieter zu. Alternativen: Bürgschaft, Mietkautionsversicherung,
+          Mietkautionssparbuch.
+        </p>
+      </QuickAnswer>
       <p>
         Fast jeder Vermieter verlangt beim Einzug eine Mietsicherheit. Was dabei erlaubt ist und welche Form für Sie am besten passt,
         ist gesetzlich geregelt. Ein Überblick für Mieter.
@@ -334,6 +395,15 @@ const bodies: Record<string, () => React.ReactNode> = {
   ),
   "nebenkosten-mietwohnung": () => (
     <>
+      <QuickAnswer>
+        <p>
+          Die <strong>Nebenkosten</strong> einer Mietwohnung in <strong>Bad Vilbel</strong>{" "}
+          liegen typisch bei <strong>2,50–3,50 €/m² pro Monat</strong>. Bei einer 75 m²
+          Wohnung sind das ca. <strong>185–265 €</strong>. Umlagefähig sind u.a.{" "}
+          Heiz-, Wasser-, Müll-, Hausmeister-, Versicherungs-{" "}
+          und Grundsteuerkosten. <strong>Verwaltungs- und Reparaturkosten sind NICHT umlagefähig.</strong>
+        </p>
+      </QuickAnswer>
       <p>
         Die Kaltmiete ist nur ein Teil dessen, was Sie monatlich für Ihre Wohnung zahlen.
         Hinzu kommen die Nebenkosten – auch „Betriebskosten" genannt. Wir erklären, was alles dazugehört
@@ -394,7 +464,42 @@ export default async function RatgeberArticlePage({ params }: { params: Promise<
       logo: { "@type": "ImageObject", url: `${site.url}/icon` },
     },
     articleSection: a.category,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "[aria-label='Kurz beantwortet']"],
+    },
   };
+
+  // HowTo-Schema für Step-by-Step-Artikel — hilft AI-Engines, Schritte sauber zu extrahieren
+  const howToSchemas: Record<string, object> = {
+    "checkliste-besichtigung": {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "Wohnungsbesichtigung — Schritt-für-Schritt-Checkliste",
+      description: a.excerpt,
+      totalTime: "PT45M",
+      step: [
+        { "@type": "HowToStep", name: "Vorbereitung", text: "Wohnungsanzeige genau lesen, Maßband, Taschenlampe, Smartphone, Mieterselbstauskunft und SCHUFA bereitlegen." },
+        { "@type": "HowToStep", name: "In der Wohnung prüfen", text: "Lichtverhältnisse, Schimmelflecken, Funktion von Fenstern/Türen/Wasserhähnen/Heizkörpern, Stromanschlüsse und Lautstärke." },
+        { "@type": "HowToStep", name: "Außenbereich prüfen", text: "Hausflur, Briefkasten, Müll- und Fahrradraum, Einkaufsmöglichkeiten, ÖPNV und Parksituation." },
+        { "@type": "HowToStep", name: "Vermieter-Fragen", text: "Letzte Nebenkostenabrechnungen, geplante Renovierungen, Ansprechpartner bei Schäden, Heizungsabrechnung." },
+      ],
+    },
+    "umzug-nach-bad-vilbel-checkliste": {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: "Umzug nach Bad Vilbel — komplette Checkliste",
+      description: a.excerpt,
+      totalTime: "P56D",
+      step: [
+        { "@type": "HowToStep", name: "8 Wochen vorher", text: "Mietvertrag kündigen, Umzugsfirma anfragen, Sperrmüll-Termin buchen, Urlaub einreichen." },
+        { "@type": "HowToStep", name: "4 Wochen vorher", text: "Strom/Gas neu, Internet-Verfügbarkeit prüfen, Nachsendeauftrag einrichten, Termin Bürgerbüro Bad Vilbel buchen." },
+        { "@type": "HowToStep", name: "Am Umzugstag", text: "Zählerstände notieren, Übergabeprotokoll, Schlüssel quittieren, Namensschilder anbringen." },
+        { "@type": "HowToStep", name: "Erste 2 Wochen nach Einzug", text: "Ummeldung im Bürgerbüro Bad Vilbel, Kfz-Ummeldung, Bank/Versicherung/Rundfunkbeitrag, Hausarzt." },
+      ],
+    },
+  };
+  const howToLd = howToSchemas[a.slug];
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -416,6 +521,12 @@ export default async function RatgeberArticlePage({ params }: { params: Promise<
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+      {howToLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
+        />
+      )}
       <article className="px-5 sm:px-8 py-12">
         <div className="mx-auto max-w-3xl">
           <Breadcrumb
