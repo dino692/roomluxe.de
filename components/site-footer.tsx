@@ -53,23 +53,45 @@ export function SiteFooter() {
 
         {/* Wohnformen */}
         <FooterCol title="Wohnformen">
+          <FooterLink href="/mietwohnung-bad-vilbel">Mietwohnungen</FooterLink>
           <FooterLink href="/moeblierte-wohnungen">Möblierte Wohnungen</FooterLink>
+          <FooterLink href="/moeblierte-wohnung-frankfurt-umgebung">Möbliert · Frankfurt-Umgebung</FooterLink>
           <FooterLink href="/wohnen-auf-zeit">Wohnen auf Zeit</FooterLink>
           <FooterLink href="/kurzzeitvermietung">Kurzzeitvermietung</FooterLink>
           <FooterLink href="/privat-vermietet">Privat vermietet</FooterLink>
-          <FooterLink href="/mietwohnung-bad-vilbel">Mietwohnungen</FooterLink>
           <FooterLink href="/ferienwohnung-bad-vilbel">Ferienwohnung</FooterLink>
         </FooterCol>
 
-        {/* Service */}
-        <FooterCol title="Service & Info">
+        {/* Service & Pendler */}
+        <FooterCol title="Pendler & Region">
           <FooterLink href="/monteurwohnungen">Monteurwohnungen</FooterLink>
           <FooterLink href="/monteurzimmer">Monteurzimmer</FooterLink>
           <FooterLink href="/unterkunft-monteure">Unterkunft Monteure</FooterLink>
           <FooterLink href="/wohnung-sbahn-frankfurt">S-Bahn-Pendler</FooterLink>
-          <FooterLink href="/ratgeber">Ratgeber</FooterLink>
-          <FooterLink href="/kontakt">Kontakt</FooterLink>
+          <FooterLink href="/wohnung-mieten-karben">Wohnung Karben</FooterLink>
+          <FooterLink href="/wohnung-mieten-frankfurt-nord">Wohnung Frankfurt Nord</FooterLink>
         </FooterCol>
+      </div>
+
+      {/* Ratgeber-Strip — zusätzliche Link-Dichte */}
+      <div className="border-t border-gold-300/40">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 py-8">
+          <h4 className="font-display text-base text-ink-900 mb-4">Ratgeber rund ums Wohnen</h4>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <FooterLink href="/ratgeber">Alle Artikel</FooterLink>
+            <FooterLink href="/ratgeber/mietpreise-bad-vilbel-2025">Mietpreise 2025</FooterLink>
+            <FooterLink href="/ratgeber/pendeln-bad-vilbel-frankfurt">Pendeln nach Frankfurt</FooterLink>
+            <FooterLink href="/ratgeber/wohnlagen-bad-vilbel-vergleich">Wohnlagen-Vergleich</FooterLink>
+            <FooterLink href="/ratgeber/2-zimmer-vs-3-zimmer-bad-vilbel">2- vs. 3-Zimmer</FooterLink>
+            <FooterLink href="/ratgeber/pendlerpauschale-bad-vilbel-frankfurt">Pendlerpauschale</FooterLink>
+            <FooterLink href="/ratgeber/kaution-buergschaft-mietsicherheit">Kaution & Bürgschaft</FooterLink>
+            <FooterLink href="/ratgeber/umzug-nach-bad-vilbel-checkliste">Umzug nach Bad Vilbel</FooterLink>
+            <FooterLink href="/ratgeber/checkliste-besichtigung">Besichtigungs-Checkliste</FooterLink>
+            <FooterLink href="/ratgeber/nebenkosten-mietwohnung">Nebenkosten</FooterLink>
+            <FooterLink href="/kontakt">Kontakt</FooterLink>
+            <FooterLink href="/seitenuebersicht">Seitenübersicht</FooterLink>
+          </ul>
+        </div>
       </div>
 
       {/* Legal bar */}
