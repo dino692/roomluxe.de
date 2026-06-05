@@ -273,6 +273,21 @@ function StadtteilPage({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* Wohnform-Cross-Links — interne Link-Dichte */}
+      <section className="px-5 sm:px-8 mt-16">
+        <div className="mx-auto max-w-7xl">
+          <Eyebrow>Was Sie in {s.name} sonst suchen können</Eyebrow>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="/mietwohnung-bad-vilbel" className="px-5 py-2.5 rounded-pill bg-cream-50 border border-gold-300/40 text-ink-700 hover:bg-gold-100 hover:text-gold-700 transition">Mietwohnungen Bad Vilbel</a>
+            <a href="/moeblierte-wohnungen" className="px-5 py-2.5 rounded-pill bg-cream-50 border border-gold-300/40 text-ink-700 hover:bg-gold-100 hover:text-gold-700 transition">Möblierte Wohnungen</a>
+            <a href="/wohnen-auf-zeit" className="px-5 py-2.5 rounded-pill bg-cream-50 border border-gold-300/40 text-ink-700 hover:bg-gold-100 hover:text-gold-700 transition">Wohnen auf Zeit</a>
+            <a href="/privat-vermietet" className="px-5 py-2.5 rounded-pill bg-cream-50 border border-gold-300/40 text-ink-700 hover:bg-gold-100 hover:text-gold-700 transition">Privat vermietet</a>
+            <a href="/monteurwohnungen" className="px-5 py-2.5 rounded-pill bg-cream-50 border border-gold-300/40 text-ink-700 hover:bg-gold-100 hover:text-gold-700 transition">Monteurwohnungen</a>
+            <a href="/wohnung-sbahn-frankfurt" className="px-5 py-2.5 rounded-pill bg-cream-50 border border-gold-300/40 text-ink-700 hover:bg-gold-100 hover:text-gold-700 transition">S-Bahn-Pendler nach Frankfurt</a>
+          </div>
+        </div>
+      </section>
+
       <CtaBand
         title={`Interesse an einer Wohnung in ${s.name}?`}
         description="Rufen Sie uns an oder schreiben Sie uns – wir vereinbaren zeitnah einen Besichtigungstermin."

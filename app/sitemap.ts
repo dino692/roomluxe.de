@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/`, lastModified: SITE_LAST_UPDATED, changeFrequency: "weekly", priority: 1 },
     { url: `${site.url}/kontakt`, lastModified: LAUNCH_DATE, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/ratgeber`, lastModified: SITE_LAST_UPDATED, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${site.url}/seitenuebersicht`, lastModified: SITE_LAST_UPDATED, changeFrequency: "weekly", priority: 0.5 },
     // Note: /impressum and /datenschutz are noindex (legal pages) — not in sitemap.
     ...stadtteile.map((s) => ({
       url: `${site.url}/${s.slug}`,
