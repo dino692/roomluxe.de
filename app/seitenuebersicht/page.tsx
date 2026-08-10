@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     title: "Seitenübersicht – roomluxe.de",
     description: "Alle Seiten von roomluxe.de auf einen Blick.",
     url: `${site.url}/seitenuebersicht`,
+    images: [{ url: `${site.url}/opengraph-image`, width: 1200, height: 630, alt: site.name }],
   },
 };
 
