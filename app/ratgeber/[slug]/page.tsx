@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: seoTitle,
     description: a.excerpt,
     alternates: { canonical: `/ratgeber/${slug}` },
-    openGraph: { title: seoTitle, description: a.excerpt, url, type: "article" },
+    openGraph: { title: seoTitle, description: a.excerpt, url, type: "article", images: [{ url: `${site.url}/opengraph-image`, width: 1200, height: 630, alt: site.name }] },
   };
 }
 

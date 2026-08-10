@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description:
       "Mietpreise, Stadtteile, Pendeln und Tipps rund ums Wohnen in Bad Vilbel.",
     url: `${site.url}/ratgeber`,
+    images: [{ url: `${site.url}/opengraph-image`, width: 1200, height: 630, alt: site.name }],
   },
 };
 

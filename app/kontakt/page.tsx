@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     title: "Kontakt – roomluxe.de Bad Vilbel",
     description: "Schreiben Sie uns oder rufen Sie direkt an.",
     url: `${site.url}/kontakt`,
+    images: [{ url: `${site.url}/opengraph-image`, width: 1200, height: 630, alt: site.name }],
   },
 };
 
