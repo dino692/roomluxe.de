@@ -1,0 +1,56 @@
+name: Typecheck
+
+# Warum es diesen Workflow gibt:
+# `next.config.ts` setzt `typescript.ignoreBuildErrors: true`, weil der in
+# `next build` integrierte TypeScript-Check auf Vercels Build-Maschine
+# (4 Cores / 8 GB) vom OOM-Killer beendet wird — belegt durch
+# "Next.js build worker exited with code: null and signal: SIGKILL" im Log von
+# Deploy dpl_9Sp1UdYdM9ZLW1qQR8Wx67DZa1Ac (08.08.2026).
+#
+# Das Typ-Gate ist damit nicht aufgegeben, es laeuft nur hier: eigener Runner,
+# eigenes Speicherbudget, unabhaengig vom Vercel-Build. Gemessen braucht der
+# Check 10,2 s und 583 MB — er ist also nicht teuer, er passt nur nicht mehr
+# zusaetzlich in den Build-Container.
+#
+# `next typegen` erzeugt vorher die Route-Typen (.next/types) und next-env.d.ts.
+# Beide sind gitignored und fehlen im frischen Checkout, werden aber von
+# tsconfig.json ueber `include` erwartet. typegen rendert KEINE Seiten vor,
+# braucht also nur Sekunden und traegt das Speicherproblem des Builds nicht.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Bei schneller Folge von Pushes nur den juengsten Lauf behalten.
+concurrency:
+  group: typecheck-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tsc:
+    name: tsc --noEmit
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          # Gleiche Major-Version wie die Vercel-Projekteinstellung (22.x).
+          node-version: 22
+          cache: npm
+
+      - name: Abhaengigkeiten installieren
+        run: npm ci
+
+      - name: Next-Typen erzeugen (Route-Typen + next-env.d.ts)
+        run: npx next typegen
+
+      - name: TypeScript pruefen
+        # Nicht `npx tsc`: das laeuft auf manchen Rechnern in eine andere
+        # TypeScript-Version. Immer die im Projekt installierte nutzen.
+        run: ./node_modules/.bin/tsc --noEmit
