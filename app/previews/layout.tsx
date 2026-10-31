@@ -10,6 +10,7 @@ const drafts = [
   { slug: "draft-a", label: "A", name: "Editorial", pitch: "Living-Magazin" },
   { slug: "draft-b", label: "B", name: "Residence", pitch: "Boutique-Hotel, dunkel" },
   { slug: "draft-c", label: "C", name: "Studio", pitch: "Scandi-Minimal" },
+  { slug: "draft-d", label: "D", name: "Direct ★", pitch: "Hospitality-Tech · Empfehlung" },
 ];
 
 export default function PreviewsLayout({ children }: { children: React.ReactNode }) {

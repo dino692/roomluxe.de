@@ -2,6 +2,17 @@ import Link from "next/link";
 
 const drafts = [
   {
+    slug: "draft-d",
+    letter: "D",
+    name: "Direct",
+    pitch: "Hospitality-Tech · meine Empfehlung",
+    desc: "Geist Sans + Geist Mono. Off-White, Deep Ink, Pine Green, Warm Stone. Rounded Cards, Pill-Chips, Trust-Signale, Buchungs-Widget. Zielgefühl: Blueground / Sonder / Vercel — professionell, direkt, Zahlen führen.",
+    accent: "#1F5F3A",
+    bg: "#FAFAF9",
+    fg: "#0A0A0A",
+    recommended: true,
+  },
+  {
     slug: "draft-a",
     letter: "A",
     name: "Editorial",
@@ -10,6 +21,7 @@ const drafts = [
     accent: "#C2583B",
     bg: "#F5EFE0",
     fg: "#2A1F17",
+    recommended: false,
   },
   {
     slug: "draft-b",
@@ -20,6 +32,7 @@ const drafts = [
     accent: "#D4B878",
     bg: "#15110D",
     fg: "#F3EBDC",
+    recommended: false,
   },
   {
     slug: "draft-c",
@@ -30,6 +43,7 @@ const drafts = [
     accent: "#C96F3B",
     bg: "#FBFAF7",
     fg: "#111111",
+    recommended: false,
   },
 ];
 
@@ -41,16 +55,17 @@ export default function PreviewsIndex() {
           Interne Vorschau · noindex · wird nicht ausgeliefert
         </p>
         <h1 className="mt-3 text-5xl sm:text-6xl font-serif leading-tight text-black">
-          roomluxe · 3 Design-Richtungen
+          roomluxe · 4 Design-Richtungen
         </h1>
         <p className="mt-5 max-w-2xl text-black/70">
-          Freistoß: jede Variante mit eigener Palette, Typografie und
-          Komponenten-Sprache. Jede Vorschau zeigt alle 6 Template-Typen
-          als Scroll-Showcase mit echten Daten (Homepage · Stadtteil ·
-          Wohnform-Hub · Ratgeber-Artikel · Wohnung-Detail · Kontakt).
+          Freistoß plus eine zusätzliche Empfehlung (D · „Direct"). Jede
+          Variante mit eigener Palette, Typografie und Komponenten-Sprache.
+          Jede Vorschau zeigt alle 6 Template-Typen als Scroll-Showcase mit
+          echten Daten (Homepage · Stadtteil · Wohnform-Hub · Ratgeber-Artikel ·
+          Wohnung-Detail · Kontakt).
         </p>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {drafts.map((d) => (
             <Link
               key={d.slug}
@@ -65,6 +80,11 @@ export default function PreviewsIndex() {
                 >
                   {d.letter}
                 </span>
+                {d.recommended && (
+                  <span className="absolute top-6 right-6 text-[10px] tracking-[0.15em] uppercase font-semibold px-2 py-1 rounded-full" style={{ background: d.accent, color: "#fff" }}>
+                    Empfehlung
+                  </span>
+                )}
                 <span
                   className="absolute bottom-6 right-6 text-xs tracking-[0.2em] uppercase"
                   style={{ color: d.accent }}
