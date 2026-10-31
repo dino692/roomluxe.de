@@ -2,48 +2,48 @@ import Link from "next/link";
 
 const drafts = [
   {
-    slug: "draft-d",
-    letter: "D",
-    name: "Direct",
-    pitch: "Hospitality-Tech · meine Empfehlung",
-    desc: "Geist Sans + Geist Mono. Off-White, Deep Ink, Pine Green, Warm Stone. Rounded Cards, Pill-Chips, Trust-Signale, Buchungs-Widget. Zielgefühl: Blueground / Sonder / Vercel — professionell, direkt, Zahlen führen.",
-    accent: "#1F5F3A",
-    bg: "#FAFAF9",
+    slug: "draft-e",
+    letter: "E",
+    name: "Suite",
+    pitch: "Boutique-Hotel · 21st",
+    desc: "Playfair Display + Instrument Sans · dunkler Hero · Property Preview Cards aus dem 21st-Katalog (@shadcnspace/card-02) · Thumbnail Image Viewer (@ibrandify) · Date Range Picker (@bidyut10).",
+    accent: "#171717",
+    bg: "#f5f5f4",
+    fg: "#0a0a0a",
+    components: ["Property Preview Card", "Thumbnail Viewer", "Date Range Picker"],
+  },
+  {
+    slug: "draft-f",
+    letter: "F",
+    name: "Journey",
+    pitch: "Travel-Lifestyle · 21st",
+    desc: "Fraunces + Inter · warme Terrakotta-Palette · Place Cards mit Image-Carousel (@ravikatiyar162/card-22) · Thumbnail Image Viewer · Date Range Picker Card.",
+    accent: "#9A3412",
+    bg: "#FFF7ED",
+    fg: "#1C1917",
+    components: ["Place Card (Carousel)", "Thumbnail Viewer", "Date Range Picker"],
+  },
+  {
+    slug: "draft-g",
+    letter: "G",
+    name: "Loft",
+    pitch: "Modern · 3D · 21st",
+    desc: "Inter Tight + Geist Mono · Split-Screen-Hero mit Grid-Hintergrund · 3D-Flip-Property-Cards (@shadcnspace/card-14) · Thumbnail Viewer · Date Range Picker · Live-Dot.",
+    accent: "#10B981",
+    bg: "#FAFAFA",
     fg: "#0A0A0A",
-    recommended: true,
+    components: ["3D Flip Card", "Thumbnail Viewer", "Date Range Picker"],
   },
   {
-    slug: "draft-a",
-    letter: "A",
-    name: "Editorial",
-    pitch: "Living-Magazin",
-    desc: "Fraunces + Inter. Terrakotta, Papier, Walnut. Nummerierte Rubriken, Dropcap, Italic-Headlines, Zweispalter. Zielgefühl: Vogue Living, Wohn-Journal.",
-    accent: "#C2583B",
-    bg: "#F5EFE0",
-    fg: "#2A1F17",
-    recommended: false,
-  },
-  {
-    slug: "draft-b",
-    letter: "B",
-    name: "Residence",
-    pitch: "Boutique-Hotel, dunkel",
-    desc: "Playfair + Instrument Sans. Charcoal, Champagne, Ivory. Monogramm „R\", Hairline-Borders, Luxus-Vokabular. Zielgefühl: Fünf-Sterne-Residenz, exklusiv.",
-    accent: "#D4B878",
-    bg: "#15110D",
-    fg: "#F3EBDC",
-    recommended: false,
-  },
-  {
-    slug: "draft-c",
-    letter: "C",
-    name: "Studio",
-    pitch: "Scandi-Minimal",
-    desc: "Inter Tight + Instrument Serif. Snow, Ink, Sage, Burnt. Grotesk-only, strenge Grids, 01/02-Nummerierung, Hairlines. Zielgefühl: Studio-Objekt, zeitlos.",
-    accent: "#C96F3B",
-    bg: "#FBFAF7",
-    fg: "#111111",
-    recommended: false,
+    slug: "draft-h",
+    letter: "H",
+    name: "Agency",
+    pitch: "Real-Estate · 21st",
+    desc: "DM Serif Display + Inter · Real Estate Search Hero mit Search-Bar (@felipemenezes098/hero-09) · Hotel Cards horizontal (@lavikatiyar/card) · Thumbnail Viewer · Date Range Picker.",
+    accent: "#78716C",
+    bg: "#FAFAF9",
+    fg: "#1C1917",
+    components: ["Hero09 Search", "Hotel Card", "Thumbnail Viewer", "Date Range Picker"],
   },
 ];
 
@@ -52,17 +52,15 @@ export default function PreviewsIndex() {
     <section className="px-5 sm:px-8 py-16" style={{ fontFamily: "system-ui, sans-serif" }}>
       <div className="mx-auto max-w-7xl">
         <p className="text-xs tracking-[0.2em] uppercase text-black/50">
-          Interne Vorschau · noindex · wird nicht ausgeliefert
+          Interne Vorschau · noindex · Entwürfe aus dem 21st.dev-Katalog
         </p>
         <h1 className="mt-3 text-5xl sm:text-6xl font-serif leading-tight text-black">
-          roomluxe · 4 Design-Richtungen
+          roomluxe · 4 Design-Richtungen aus dem 21st-Katalog
         </h1>
         <p className="mt-5 max-w-2xl text-black/70">
-          Freistoß plus eine zusätzliche Empfehlung (D · „Direct"). Jede
-          Variante mit eigener Palette, Typografie und Komponenten-Sprache.
-          Jede Vorschau zeigt alle 6 Template-Typen als Scroll-Showcase mit
-          echten Daten (Homepage · Stadtteil · Wohnform-Hub · Ratgeber-Artikel ·
-          Wohnung-Detail · Kontakt).
+          Alle vier Varianten nutzen echte 21st.dev-Komponenten (Property Cards, Hero-Sections,
+          Date-Picker, Gallery) auf dem shadcn/ui-Fundament. Jede Variante hat eigene Palette und
+          Typografie, aber dieselben echten roomluxe-Daten (Wohnungen, Stadtteil, Rezensionen).
         </p>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -70,21 +68,13 @@ export default function PreviewsIndex() {
             <Link
               key={d.slug}
               href={`/previews/${d.slug}`}
-              className="group rounded-2xl overflow-hidden border border-black/10 hover:border-black/40 transition shadow-sm hover:shadow-xl"
+              className="group rounded-2xl overflow-hidden border border-black/10 hover:border-black/40 transition shadow-sm hover:shadow-xl flex flex-col"
               style={{ background: d.bg, color: d.fg }}
             >
               <div className="aspect-[4/3] relative flex items-start justify-start p-6">
-                <span
-                  className="text-7xl font-serif leading-none"
-                  style={{ color: d.accent }}
-                >
+                <span className="text-7xl font-serif leading-none" style={{ color: d.accent }}>
                   {d.letter}
                 </span>
-                {d.recommended && (
-                  <span className="absolute top-6 right-6 text-[10px] tracking-[0.15em] uppercase font-semibold px-2 py-1 rounded-full" style={{ background: d.accent, color: "#fff" }}>
-                    Empfehlung
-                  </span>
-                )}
                 <span
                   className="absolute bottom-6 right-6 text-xs tracking-[0.2em] uppercase"
                   style={{ color: d.accent }}
@@ -92,12 +82,16 @@ export default function PreviewsIndex() {
                   {d.pitch}
                 </span>
               </div>
-              <div
-                className="px-6 py-5 border-t"
-                style={{ borderColor: d.accent + "40", background: "color-mix(in oklab, white 85%, transparent)" }}
-              >
+              <div className="px-6 py-5 border-t flex-1 flex flex-col" style={{ borderColor: d.accent + "40", background: "color-mix(in oklab, white 85%, transparent)" }}>
                 <h2 className="font-serif text-2xl text-black">{d.name}</h2>
-                <p className="mt-2 text-sm text-black/70 leading-relaxed">{d.desc}</p>
+                <p className="mt-2 text-sm text-black/70 leading-relaxed flex-1">{d.desc}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {d.components.map((c) => (
+                    <span key={c} className="text-[10px] px-2 py-0.5 rounded-full bg-black/5 text-black/70">
+                      {c}
+                    </span>
+                  ))}
+                </div>
                 <span className="mt-4 inline-flex items-center text-xs font-semibold tracking-wider uppercase group-hover:translate-x-1 transition">
                   Vorschau öffnen →
                 </span>
@@ -109,9 +103,9 @@ export default function PreviewsIndex() {
         <div className="mt-14 rounded-2xl border border-black/10 p-6 text-sm text-black/70">
           <p className="font-semibold text-black mb-2">So gehst du vor</p>
           <ol className="list-decimal list-inside space-y-1">
-            <li>Alle drei Varianten einmal durchscrollen.</li>
-            <li>Entscheide, welche Richtung weitergeht (A, B oder C).</li>
-            <li>Danach: ich ziehe die gewählte Richtung in alle echten Templates (Homepage/Stadtteil/Hub/Ratgeber/Wohnung/Kontakt) ein — oder wir mischen Elemente aus zweien.</li>
+            <li>Alle vier Varianten einmal durchscrollen.</li>
+            <li>Entscheide, welche Richtung weitergeht (E, F, G oder H) oder welche Elemente ich mischen soll.</li>
+            <li>Nach der Wahl: PR #12 schliessen und löschen (laut 2c), gewählte Richtung in eigenem PR in alle echten Templates einziehen.</li>
           </ol>
         </div>
       </div>

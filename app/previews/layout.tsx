@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Design-Entwürfe – roomluxe",
+  title: "Design-Entwürfe · 21st.dev",
   robots: { index: false, follow: false },
 };
 
 const drafts = [
-  { slug: "draft-a", label: "A", name: "Editorial", pitch: "Living-Magazin" },
-  { slug: "draft-b", label: "B", name: "Residence", pitch: "Boutique-Hotel, dunkel" },
-  { slug: "draft-c", label: "C", name: "Studio", pitch: "Scandi-Minimal" },
-  { slug: "draft-d", label: "D", name: "Direct ★", pitch: "Hospitality-Tech · Empfehlung" },
+  { slug: "draft-e", label: "E", name: "Suite", pitch: "Boutique-Hotel" },
+  { slug: "draft-f", label: "F", name: "Journey", pitch: "Travel-Lifestyle" },
+  { slug: "draft-g", label: "G", name: "Loft", pitch: "Modern · 3D-Flip" },
+  { slug: "draft-h", label: "H", name: "Agency", pitch: "Real-Estate-Suche" },
 ];
 
 export default function PreviewsLayout({ children }: { children: React.ReactNode }) {
@@ -22,7 +22,7 @@ export default function PreviewsLayout({ children }: { children: React.ReactNode
       >
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-3 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs">
           <Link href="/previews" className="font-semibold tracking-wider uppercase text-black">
-            Design-Entwürfe
+            Design-Entwürfe · 21st.dev
           </Link>
           <span className="text-black/40">Interne Vorschau · noindex</span>
           <div className="ml-auto flex items-center gap-1">
